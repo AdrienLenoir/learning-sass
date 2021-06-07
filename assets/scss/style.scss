@@ -1,0 +1,73 @@
+$section-odd-background: indianred;
+$section-even-background: darken(indianred, 5%);
+$title-color: darken(white, 10%);
+$button-background: lighten($section-odd-background, 10%);
+$button-background-hover: lighten($section-odd-background, 15%);
+$dark-color: lighten(black, 10%);
+$dark-red: firebrick;
+
+body {
+  background-color: $dark-red;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+@mixin full-screen-flex-center() {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+header, section {
+  @include full-screen-flex-center;
+
+  h1 {
+    color: $title-color;
+    font-size: 50px;
+    text-transform: uppercase;
+  }
+
+  p {
+    margin-top: 25px;
+    font-size: 20px;
+    max-width: 650px;
+    color: $dark-color;
+  }
+
+  .button {
+    margin-top: 25px;
+    padding: 10px 50px;
+    background-color: $button-background;
+    transition: background-color .3s ease-in-out, padding .3s ease-in-out;
+    color: $dark-color;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 10px;
+
+    &:hover {
+      background-color: $button-background-hover;
+      padding: 10px 55px;
+    }
+  }
+}
+
+section {
+  background-color: $section-even-background;
+
+  &:nth-child(odd) {
+    background-color: $section-odd-background;
+  }
+}
+
+footer {
+  text-align: center;
+  padding: 15px 0;
+  color: $dark-color;
+  background-color: $dark-red;
+}
